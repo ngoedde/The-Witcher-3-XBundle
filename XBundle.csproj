@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9086E011-838B-4BDB-B791-16E01464C0EE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XBundle</RootNamespace>
+    <AssemblyName>XBundle</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Doboz, Version=1.0.1.0, Culture=neutral, PublicKeyToken=782b060f562b233c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Doboz.dll</HintPath>
+    </Reference>
+    <Reference Include="LZ4, Version=1.0.5.93, Culture=neutral, PublicKeyToken=fd2bda0a70c5a705, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="zlibnet, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\zlibnet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Compression\Doboz.cs" />
+    <Compile Include="Compression\ICompression.cs" />
+    <Compile Include="Compression\Lz4.cs" />
+    <Compile Include="Compression\Zip.cs" />
+    <Compile Include="Compression\Default.cs" />
+    <Compile Include="Handler\CompressionHandler.cs" />
+    <Compile Include="Utilities\ChainGenerator.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Exceptions\FileNotFoundException.cs" />
+    <Compile Include="Exceptions\FileAlreadyExistsException.cs" />
+    <Compile Include="Handler\FileHandler.cs" />
+    <Compile Include="Handler\DirectoryHandler.cs" />
+    <Compile Include="Globals.cs" />
+    <Compile Include="Utilities\IdGenerator.cs" />
+    <Compile Include="IO\FileReader.cs" />
+    <Compile Include="IO\FileWriter.cs" />
+    <Compile Include="IO\Stream\Reader.cs" />
+    <Compile Include="IO\Stream\StreamController.cs" />
+    <Compile Include="IO\Stream\StreamOperation.cs" />
+    <Compile Include="IO\Stream\Writer.cs" />
+    <Compile Include="FileInfo.cs" />
+    <Compile Include="HeaderInfo.cs" />
+    <Compile Include="Exceptions\InvalidArchiveException.cs" />
+    <Compile Include="Exceptions\UnsupportedCompressionException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BundleArchive.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
