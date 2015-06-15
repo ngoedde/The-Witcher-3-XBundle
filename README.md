@@ -5,6 +5,6 @@ A library written in c# that allows developer to open/modify .bundle archives wh
 ##Example
 BundleArchive archive = new BundleArchive("mypath");
 
-#You can access the files/directories via
-archive.Files()
-archive.Directories()
+###You can access the files/directories via the properties
+BundleArchive.Files
+BundleArchive.Directories
